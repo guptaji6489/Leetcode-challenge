@@ -1,0 +1,15 @@
+int nthUglyNumber(int n) {
+        set<long long> myset;
+   myset.insert(1);
+   n--;
+        while(n--){
+       auto it = myset.begin();
+       myset.insert((*it)*2);
+       myset.insert((*it)*3);
+       myset.insert((*it)*5);
+       
+       myset.erase(it);
+       
+   }
+   return *(myset.begin());
+}
