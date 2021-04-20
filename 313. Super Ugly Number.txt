@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int nthSuperUglyNumber(int n, vector<int>& primes) {
+        set<long long>s;
+        s.insert(1);
+        n--;
+        while(n--)
+        {
+            auto it = s.begin();
+            for(int i=0;i<primes.size();++i)
+                s.insert((*it)*primes[i]);
+            s.erase(it);
+        }
+        return *(s.begin());
+    }
+};
